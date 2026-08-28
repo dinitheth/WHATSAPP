@@ -1,6 +1,4 @@
 # Environment
-.env
-.env.local
 
 # Build output
 dist
@@ -10,7 +8,6 @@ node_modules
 
 # IDE
 .idea
-.vscode
 
 # WhatsApp session data - NEVER commit this!
 auth_info/
@@ -55,3 +52,4 @@ model.nlp
 .claude/settings.local.json
 .claude/plans/
 .claude/memory/
+config.bat

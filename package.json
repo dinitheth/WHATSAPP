@@ -37,17 +37,17 @@
   "scripts": {
     "lint": "eslint . --fix",
     "lint:ci": "eslint .",
-    "dev": "tsnd --respawn --transpile-only --ignore-watch node_modules -r dotenv/config src/index.ts",
+    "dev": "node init && tsnd --respawn --transpile-only --ignore-watch node_modules -r dotenv/config src/index.ts",
     "client": "cd client && npm run dev",
-    "dev:all": "concurrently \"npm run dev\" \"npm run client\"",
-    "build:client": "cd client && npm install && npm run build",
-    "build": "npm run build:client && tsc",
+    "dev:all": "node init && concurrently \"npm run dev\" \"npm run client\"",
+    "build:client": "node init && cd client && npm install && npm run build",
+    "build": "node init && npm run build:client && tsc",
     "typecheck": "tsc --noEmit",
     "typecheck:client": "tsc -b client",
     "test": "node --max-old-space-size=4096 node_modules/jest/bin/jest.js --passWithNoTests --runInBand",
     "test:file": "node --max-old-space-size=4096 node_modules/jest/bin/jest.js --passWithNoTests --runInBand",
     "verify": "npm run typecheck && npm run test",
-    "start": "node dist/index.js"
+    "start": "node init && node dist/index.js"
   },
   "dependencies": {
     "@ffmpeg-installer/ffmpeg": "^1.1.0",
